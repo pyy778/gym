@@ -9,6 +9,9 @@
 // Only these three constants are shared with normal builds: Vite replaces VITE_DEMO at build
 // time, so the demo-only UI folds away and the seed generator — imported dynamically — never
 // lands in a self-hosted bundle.
-export const DEMO = import.meta.env.VITE_DEMO === '1'
+// Standalone Pages build: the same no-backend safeguards as the demo, but starts empty and is
+// presented as the owner's local phone app rather than as example data.
+export const STANDALONE = import.meta.env.VITE_STANDALONE === '1'
+export const DEMO = import.meta.env.VITE_DEMO === '1' || STANDALONE
 export const DEMO_SEEDED = 'gym_demo_seeded_v1'
 export const REPO = 'https://gitlab.com/DuarteSantos8/opengym'
